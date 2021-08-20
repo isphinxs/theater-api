@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
     before_action :set_show, only: [:show, :update, :destroy]
+    
     # GET /shows
     def index
         shows = Show.all
@@ -27,7 +28,7 @@ class ShowsController < ApplicationController
 
     # PATCH/PUT /shows/1
     def update
-        if @show.update(show_paras)
+        if @show.update(show_params)
             render json: @show
         else
             render json: { message: "Error updating show." }
@@ -50,7 +51,7 @@ class ShowsController < ApplicationController
     end
 
     def show_params
-        params.require(:show).permit(:title, :tehater, :director, :music, :lyrics, :book, :open_date)
+        params.require(:show).permit(:title, :theater, :director, :music, :lyrics, :book, :open_date)
     end
 
 end
