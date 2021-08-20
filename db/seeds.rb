@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Scrape data from ibdb.com; see Scraper model in app/models/scraper.rb
+
+musicals = Scraper.new.get_musicals
+Show.create_from_collection(musicals)
