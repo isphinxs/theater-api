@@ -1,10 +1,10 @@
 class ShowsController < ApplicationController
     before_action :set_show, only: [:show, :update, :destroy]
-    
+
     # GET /shows
     def index
         shows = Show.all
-        render json: shows, only: [:title, :theater, :director, :music, :lyrics, :book, :open_date]
+        render json: shows, only: [:id, :title, :theater, :director, :music, :lyrics, :book, :open_date]
     end
 
     # GET /shows/1
