@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     # GET /users/1
     def show
-        render json: @user
+        render json: @user, include: [:shows]
     end
 
     def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: { message: "Error creating show." }
+            render json: { message: "Error creating user." }
         end
     end
 
@@ -52,10 +52,11 @@ class UsersController < ApplicationController
     end
 
     def set_user
-        @user = current_user
+        # @user = current_user
+        @user = User.find_by(id: 1)
     end
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, show_ids: [])
     end
 end
