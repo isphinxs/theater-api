@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+    before_action :authorized
+
     def encode_token(payload)
         JWT.encode(payload, 'secret')
     end
@@ -7,7 +9,7 @@ class ApplicationController < ActionController::API
         request.headers['Authorization']
     end
 
-    def decoded_token(token)
+    def decoded_token
         if auth_header
             token = auth_header.split(' ')[1]
             begin
@@ -27,5 +29,9 @@ class ApplicationController < ActionController::API
 
     def logged_in?
         !!current_user
+    end
+
+    def authorized
+       render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
     end
 end
