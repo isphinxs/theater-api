@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
     before_action :set_show, only: [:show, :update, :destroy]
+    skip_before_action :authorized, only: [:index, :show]
 
     # GET /shows
     def index
