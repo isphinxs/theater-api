@@ -20,6 +20,24 @@ class UsersController < ApplicationController
         end
     end
 
+    # def omniauth
+    #     user_info = request.env["omniauth.auth"]
+    #     byebug
+    #     user = User.find_or_create_by(uid: user_info["uid"], provider: user_info["provider"]) do |u|
+    #       u.first_name = user_info["info"]["first_name"]
+    #       u.last_name = user_info["info"]["last_name"]
+    #       u.email = user_info["info"]["email"]
+    #       u.username = user_info["info"]["email"]
+    #       u.password = SecureRandom.hex(10)
+    #     end
+    #     if user.valid?
+    #       session[:user_id] = user.id
+    #       redirect_to root_path
+    #     else
+    #       redirect_to signup_path, alert: "Hmm, please try signing up again."
+    #     end
+    # end
+
     # PATCH/PUT /users/1
     def update
         if @user.update(user_params)

@@ -1,24 +1,23 @@
-# README
+# Goodtheater API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails API serving a front-end theater cataloging app written in JavaScript with React and Redux. This app aims to allow theater enthusiasts to find and save their favorite musicals and plays. The seed data is scraped from the [Internet Broadway Database](https://www.ibdb.com/).
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone this repository, run `bundle install`, `rails db:migrate`, and `rails db:seed`. To start the server, run `rails s`. This repository runs the application's back end; you will also need to install the front end available at https://github.com/isphinxs/theater-client.
 
-* System dependencies
+## Usage
 
-* Configuration
+This Rails server supports a front-end theater cataloging app. Users can browse available plays and musicals and, on login, save shows to their account.
 
-* Database creation
+## Contributing
 
-* Database initialization
+Bug reports and pull requests are welcome on GitHub at https://github.com/isphinxs/theater-api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/isphinxs/theater-api/blob/main/CODE_OF_CONDUCT.md).
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-* Deployment instructions
+## Code of Conduct
 
-* ...
+Everyone interacting in the Goodtheater project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/isphinxs/theater-api/blob/main/CODE_OF_CONDUCT.md).
