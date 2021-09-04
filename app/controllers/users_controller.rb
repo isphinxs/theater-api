@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             token = encode_token(user_id: user.id)
             render json: { user: user, jwt: token }, status: :created
         else
-            render json: { message: "Error creating user." }, status: :not_acceptable
+            render json: { error: "Error creating user." }, status: :not_acceptable
         end
     end
 
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             render json: @user, include: [:shows]
         else
-            render json: { message: "Error updating user." }
+            render json: { error: "Error updating user." }
         end
     end
 
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
         if @user.destroy
             render json: { message: "User successfully deleted." }
         else
-            render json: { message: "Error deleting user." }
+            render json: { error: "Error deleting user." }
         end
     end
 

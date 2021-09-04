@@ -13,7 +13,7 @@ class ShowsController < ApplicationController
         if @show
             render json: @show, only: [:title, :theater, :director, :music, :lyrics, :book, :open_date]
         else
-            render json: { message: "Show not found. Please try again." }
+            render json: { error: "Show not found. Please try again." }
         end
     end
 
@@ -23,7 +23,7 @@ class ShowsController < ApplicationController
         if show.save
             render json: show, status: :created
         else
-            render json: { message: "Error creating show." }
+            render json: { error: "Error creating show." }
         end
     end
 
@@ -32,7 +32,7 @@ class ShowsController < ApplicationController
         if @show.update(show_params)
             render json: @show
         else
-            render json: { message: "Error updating show." }
+            render json: { error: "Error updating show." }
         end
     end
 
@@ -41,7 +41,7 @@ class ShowsController < ApplicationController
         if @show.destroy
             render json: { message: "Show successfully deleted." }
         else
-            render json: { message: "Error deleting show." }
+            render json: { error: "Error deleting show." }
         end
     end
 
