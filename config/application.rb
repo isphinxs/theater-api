@@ -39,7 +39,7 @@ module TheaterApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://rocky-mountain-05852.herokuapp.com/'
+        origins 'https://objective-swirles-ad93b5.netlify.app/'
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :delete, :put, :patch, :options, :head],
