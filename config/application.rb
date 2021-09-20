@@ -39,7 +39,8 @@ module TheaterApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://objective-swirles-ad93b5.netlify.app/'
+        # origins 'https://objective-swirles-ad93b5.netlify.app/'
+        origins '*'
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :delete, :put, :patch, :options, :head],
