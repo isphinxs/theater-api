@@ -11,7 +11,7 @@ class ShowsController < ApplicationController
     # GET /shows/1
     def show
         if @show
-            render json: @show, only: [:title, :theater, :director, :music, :lyrics, :book, :open_date]
+            render json: @show, only: [:id, :title, :theater, :director, :music, :lyrics, :book, :open_date]
         else
             render json: { error: "Show not found. Please try again." }
         end
@@ -30,7 +30,7 @@ class ShowsController < ApplicationController
     # PATCH/PUT /shows/1
     def update
         if @show.update(show_params)
-            render json: @show
+            render json: @show, only: [:id, :title, :theater, :director, :music, :lyrics, :book, :open_date]
         else
             render json: { error: "Error updating show." }
         end
