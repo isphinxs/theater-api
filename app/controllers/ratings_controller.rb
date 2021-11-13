@@ -6,6 +6,7 @@ class RatingsController < ApplicationController
     def index
         ratings = Rating.all
         render json: ratings, only: [:id, :user_id, :show_id, :rating]
+    end
     
     # GET /ratings/1
     def show
