@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
     # GET /shows
     def index
         shows = Show.all
-        render json: shows, only: [:id, :title, :theater, :director, :music, :lyrics, :book, :open_date]
+        render json: shows, only: [:id, :title, :theater, :director, :music, :lyrics, :book, :open_date], include: [:comments, :ratings]
     end
 
     # GET /shows/1
